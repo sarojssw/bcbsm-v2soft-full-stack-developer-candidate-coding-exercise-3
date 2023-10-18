@@ -8,11 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1/admin")
 @RequiredArgsConstructor
 public class AdminController {
 
     private final AdminService adminService;
+
 
     @GetMapping("/feedback/view")
     public ResponseEntity<ViewFeedbackResponse> viewFeedback(){

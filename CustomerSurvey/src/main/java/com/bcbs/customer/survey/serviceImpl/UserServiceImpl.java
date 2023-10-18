@@ -85,7 +85,12 @@ public class UserServiceImpl implements UserService {
 
     public ViewFeedbackResponse getFeedbacks(ViewFeedbackRequest viewFeedbackRequest){
         String username = viewFeedbackRequest.getUsername();
-        List<Feedback> feedbackList = feedbackRepository.findFeedbackByUsername(username);
+        List<Feedback> feedbackList = new ArrayList<Feedback>();
+        if("Admin".equals(username)){
+            feedbackList = feedbackRepository.findAll();
+        } else {
+            feedbackList = feedbackRepository.findFeedbackByUsername(username);
+        }
         return SurveyUtils.getFeedbacksList(feedbackList);
     }
 

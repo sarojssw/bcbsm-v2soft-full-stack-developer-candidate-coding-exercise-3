@@ -13,19 +13,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/feedback")
 @RequiredArgsConstructor
-public class UserController {
-
+public class FeedbackContoller {
     private final UserService userService;
 
-    @PostMapping("/feedback/view")
+    @PostMapping("/view")
     public ResponseEntity<ViewFeedbackResponse> viewFeedback(@RequestBody ViewFeedbackRequest viewFeedbackRequest){
         //return ResponseEntity.ok("Hello User");
         return ResponseEntity.ok(userService.getFeedbacks(viewFeedbackRequest));
     }
 
-    @PostMapping("/feedback/submit")
+    @PostMapping("/submit")
     public ResponseEntity<String> submitFeedback(@RequestBody SubmitFeedbackRequest submitFeedbackRequest){
         try{
             return userService.submitFeedback(submitFeedbackRequest);
