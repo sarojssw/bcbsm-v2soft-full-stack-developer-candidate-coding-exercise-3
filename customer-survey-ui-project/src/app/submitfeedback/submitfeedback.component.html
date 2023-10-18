@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <form>
+    <h2>Login page</h2>
+    <div class="form-group">
+      <label>Rating</label>
+      <select class="form-control" name="rating" [(ngModel)]="rating">
+        <option [value]="1" >1</option>
+        <option [value]="2" >2</option>
+        <option [value]="3" >3</option>
+        <option [value]="4" >4</option>
+        <option [value]="5" >5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Comment</label>
+      <input type="text"
+             [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"
+             class="form-control" id="inputLoginName"  placeholder="Enter Login Name">
+    </div><br>
+    <div  align="center">
+      <button type="submit" class="btn btn-primary" (click)="submit()">Login</button>
+      <br>
+      <a href="/signup">Registration</a>
+    </div>
+  </form>
+
+</div>
